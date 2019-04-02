@@ -12,3 +12,5 @@ python main.py "CESA3_1/CESA3-GCs-mature/CESA3-68-mature/68-white/" "GFP-CESA3 6
 # tif
 python main.py "CESA3_1/CESA3-GCs-mature/CESA3-12-mature/12-white/" "GFP-CESA3 12" 200 tif
 python main.py "CESA3_1/CESA3-GCs-mature/CESA3-27-mature/white-27/" "GFP-CESA3 27" 235 tif
+
+python main.py "3283-CESA3-1/3283-CESA3 1/" "CESA3 3-3283" 180 png

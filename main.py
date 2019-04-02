@@ -13,7 +13,7 @@ from FindDot import GMMFind, compare
 dir = sys.argv[1]
 prefix = sys.argv[2]
 num_imgs = len(os.listdir(dir))
-threshold = int(sys.argv[3])
+threshold = float(sys.argv[3])
 pic_format = sys.argv[4]
 
 # 读取所有的图片
@@ -28,7 +28,7 @@ for i in range(num_imgs):
         i = '0'+str(i)
 
     img = load(dir+prefix + str(i) + '.'+pic_format, threshold=threshold, pic_format=pic_format)
-
+    
     center = [img.shape[0]/2, img.shape[1]/2]
     # img = load('imgs/1-white/visg-eb1b00'+str(i)+'.png', threshold=threshold)
     cls = GMMFind(img)

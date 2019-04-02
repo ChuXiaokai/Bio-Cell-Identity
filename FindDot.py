@@ -76,11 +76,12 @@ def GMMFind(img):
 
         # io.imshow(img)
         # plt.show()
+    # print(len(cluster_indices))
 
     # 将图中族群内节点数目 < 2的剔除
     def bigger_cls(x):
         return x[1] > min_cls
-    cluster_indices = filter(bigger_cls, cluster_indices)
+    cluster_indices = list(filter(bigger_cls, cluster_indices))
 
     return cluster_indices
 
