@@ -1,0 +1,6 @@
+3283-CESA3-1/3283-CESA3 1/:  inwards:22; outwards:16
+3283-CESA3-1/3283-CESA3 5/:  inwards:14; outwards:5
+3283-CESA3-1/3283-CESA3 9/:  inwards:16; outwards:12
+3283-CESA3-1/3283-CESA3 14/:  inwards:20; outwards:12
+3283-CESA3-1/3283-CESA3 21/:  inwards:24; outwards:29
+3283-CESA3-1/3283-CESA3 2/:  inwards:5; outwards:3
