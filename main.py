@@ -15,6 +15,8 @@ prefix = sys.argv[2]
 num_imgs = len(os.listdir(dir))
 threshold = float(sys.argv[3])
 pic_format = sys.argv[4]
+pixel_size = 0.142  # um
+interval = 5  # s
 
 # 读取所有的图片
 Clusters = []
@@ -98,6 +100,33 @@ for t in trajectories:
         outwards += 1
 print('{2}:  inwards:{0}; outwards:{1}'.format(inwards, outwards, dir))
 
+# 计算每个点的平均速度
+ALL_SPEED = []
+for t in trajectories:
+    pic_list = [img_index for img_index in range(t[0], t[-1]+1)]  # 这条轨迹所属的图片序列
+    node_list = t[1]  # 对于每张图片来说，该轨迹点对应的index
+    location_list = []
+
+    # 获取该点在每张图片中的位置
+    for i in range(len(pic_list)):
+        location = Clusters[pic_list[i]][node_list[i]][0]
+        location_list.append(location)
+    location_list = np.array(location_list)
+
+    # 前后两张图片计算速度
+    speeds = []
+    for i in range(0, len(location_list)-1):
+        sp = np.linalg.norm(location_list[i+1] - location_list[i])*pixel_size/interval*60
+        speeds.append(sp)
+    node_mean_speeds = np.mean(speeds)
+    ALL_SPEED.append(node_mean_speeds)
+
+import pandas as pd
+print(ALL_SPEED)
+ALL_SPEED = pd.Series(ALL_SPEED)
+print(ALL_SPEED.describe())
+
+# print('平均速度为:{0} um/min'.format(np.mean(ALL_SPEED)))
 
 
 
