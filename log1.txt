@@ -1,0 +1,257 @@
+'CESA3-green'
+
+(py3) E:\workspace\Bio-Cell-Identity>python main.py "CESA3_1/CESA3-GCs-mature/CESA3-9-mature/9-green/" "GREEN-9" 0.5 png 
+CESA3_1/CESA3-GCs-mature/CESA3-9-mature/9-green/:  inwards:7; outwards:23
+inwards
+count    7.000000
+mean     0.175134
+std      0.053448
+min      0.096437
+25%      0.134245
+50%      0.200818
+75%      0.213000
+max      0.234192
+dtype: float64
+outwards
+count    23.000000
+mean      0.181117
+std       0.060731
+min       0.032769
+25%       0.147070
+50%       0.200818
+75%       0.232752
+max       0.247247
+dtype: float64
+
+(py3) E:\workspace\Bio-Cell-Identity>python main.py "CESA3_1/CESA3-GCs-mature/CESA3-13-mature/13-green/" "13-green" 0.5 png 
+CESA3_1/CESA3-GCs-mature/CESA3-13-mature/13-green/:  inwards:4; outwards:3
+inwards
+count    4.000000
+mean     0.197170
+std      0.045421
+min      0.133879
+25%      0.184083
+50%      0.206909
+75%      0.219995
+max      0.240982
+dtype: float64
+outwards
+count    3.000000
+mean     0.142673
+std      0.057812
+min      0.085200
+25%      0.113600
+50%      0.142000
+75%      0.171409
+max      0.200818
+dtype: float64
+
+(py3) E:\workspace\Bio-Cell-Identity>python main.py "CESA3_1/CESA3-GCs-mature/CESA3-27-mature/27-green/" "GFP-CESA3 27" 0.5 png 
+CESA3_1/CESA3-GCs-mature/CESA3-27-mature/27-green/:  inwards:7; outwards:9
+inwards
+count    7.000000
+mean     0.150488
+std      0.066878
+min      0.031752
+25%      0.122385
+50%      0.190278
+75%      0.191880
+max      0.202857
+dtype: float64
+outwards
+count    9.000000
+mean     0.166230
+std      0.054173
+min      0.091720
+25%      0.118432
+50%      0.190513
+75%      0.200818
+max      0.242857
+dtype: float64
+
+(py3) E:\workspace\Bio-Cell-Identity>python main.py "CESA3_1/CESA3-GCs-mature/CESA3-37-mature/37-green/" "GFP-CESA3 37" 0.5 png 
+CESA3_1/CESA3-GCs-mature/CESA3-37-mature/37-green/:  inwards:4; outwards:9
+inwards
+count    4.000000
+mean     0.170148
+std      0.060046
+min      0.090720
+25%      0.151778
+50%      0.176785
+75%      0.195156
+max      0.236302
+dtype: float64
+outwards
+count    9.000000
+mean     0.148906
+std      0.050158
+min      0.067357
+25%      0.127009
+50%      0.144177
+75%      0.160655
+max      0.241354
+dtype: float64
+
+(py3) E:\workspace\Bio-Cell-Identity>python main.py "CESA3_1/CESA3-GCs-mature/CESA3-68-mature/68-green/" "GFP-CESA3 68" 0.5 png 
+CESA3_1/CESA3-GCs-mature/CESA3-68-mature/68-green/:  inwards:9; outwards:7
+inwards
+count    9.000000
+mean     0.186535
+std      0.035705
+min      0.127009
+25%      0.160417
+50%      0.190807
+75%      0.216381
+max      0.223040
+dtype: float64
+outwards
+count    7.000000
+mean     0.148613
+std      0.041689
+min      0.090720
+25%      0.121205
+50%      0.146282
+75%      0.180029
+max      0.200818
+dtype: float64
+
+(py3) E:\workspace\Bio-Cell-Identity>echo '3283-CESA3' 
+'3283-CESA3'
+
+(py3) E:\workspace\Bio-Cell-Identity>python main.py "3283-CESA3-1/3283-CESA3 1/" "CESA3 3-3283" 0.5 png 
+3283-CESA3-1/3283-CESA3 1/:  inwards:2; outwards:4
+inwards
+count    2.000000
+mean     0.175352
+std      0.053242
+min      0.137704
+25%      0.156528
+50%      0.175352
+75%      0.194176
+max      0.213000
+dtype: float64
+outwards
+count    4.000000
+mean     0.308579
+std      0.272467
+min      0.113600
+25%      0.176298
+50%      0.204296
+75%      0.336577
+max      0.712122
+dtype: float64
+
+(py3) E:\workspace\Bio-Cell-Identity>python main.py "3283-CESA3-1/3283-CESA3 9/" "3283-cesa3 9" 0.4 png 
+3283-CESA3-1/3283-CESA3 9/:  inwards:13; outwards:5
+inwards
+count    13.000000
+mean      0.161415
+std       0.065979
+min       0.056800
+25%       0.119579
+50%       0.180727
+75%       0.217729
+max       0.234110
+dtype: float64
+outwards
+count    5.000000
+mean     0.198248
+std      0.059842
+min      0.094667
+25%      0.207269
+50%      0.211681
+75%      0.234192
+max      0.243429
+dtype: float64
+
+(py3) E:\workspace\Bio-Cell-Identity>python main.py "3283-CESA3-1/3283-CESA3 12/" "3283-CESA3 12" 0.4 png 
+3283-CESA3-1/3283-CESA3 12/:  inwards:2; outwards:4
+inwards
+count    2.000000
+mean     0.152931
+std      0.015459
+min      0.142000
+25%      0.147466
+50%      0.152931
+75%      0.158397
+max      0.163863
+dtype: float64
+outwards
+count    4.000000
+mean     0.157214
+std      0.058266
+min      0.121714
+25%      0.121714
+50%      0.131857
+75%      0.167357
+max      0.243429
+dtype: float64
+
+(py3) E:\workspace\Bio-Cell-Identity>python main.py "3283-CESA3-1/3283-CESA3 5/" "3283-CESA3 5-1" 0.5 png 
+3283-CESA3-1/3283-CESA3 5/:  inwards:3; outwards:4
+inwards
+count    3.000000
+mean     0.217761
+std      0.013352
+min      0.202857
+25%      0.212327
+50%      0.221796
+75%      0.225214
+max      0.228631
+dtype: float64
+outwards
+count    4.000000
+mean     0.130273
+std      0.062757
+min      0.048339
+25%      0.112453
+50%      0.135764
+75%      0.153584
+max      0.201225
+dtype: float64
+
+(py3) E:\workspace\Bio-Cell-Identity>python main.py "3283-CESA3-1/3283-CESA3 14/" "3283-CESA3 14" 0.5 png 
+3283-CESA3-1/3283-CESA3 14/:  inwards:10; outwards:7
+inwards
+count    10.000000
+mean      0.179090
+std       0.057574
+min       0.068314
+25%       0.161832
+50%       0.192195
+75%       0.217168
+max       0.241354
+dtype: float64
+outwards
+count    7.000000
+mean     0.171132
+std      0.057828
+min      0.100409
+25%      0.126445
+50%      0.158761
+75%      0.220464
+max      0.244933
+dtype: float64
+
+(py3) E:\workspace\Bio-Cell-Identity>python main.py "3283-CESA3-1/3283-CESA3 21/" "3283-CESA3 21-1" 0.5 png 
+3283-CESA3-1/3283-CESA3 21/:  inwards:8; outwards:10
+inwards
+count    8.000000
+mean     0.144534
+std      0.076496
+min      0.018933
+25%      0.106500
+50%      0.150074
+75%      0.200667
+max      0.241627
+dtype: float64
+outwards
+count    10.000000
+mean      0.176727
+std       0.053385
+min       0.089809
+25%       0.149100
+50%       0.187985
+75%       0.219997
+max       0.240982
+dtype: float64

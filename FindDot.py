@@ -7,7 +7,10 @@ import numpy as np
 from skimage import io
 import matplotlib.pyplot as plt
 
+USE_CENTER_AS_LOC = True
 min_cls = 2  # 一个聚类的最小单元
+threshold = 250
+threshold = threshold / 1000. /60 *5 /0.142
 
 def judge(img, FLAG, stack, cur_x, cur_y, neighbor_x, neighbor_y, num_nodes, cluster):
     if neighbor_x < 0 or neighbor_x >= img.shape[0] or neighbor_y <0 or neighbor_y >= img.shape[1]:
@@ -47,7 +50,10 @@ def gmm(img, x, y, FLAG):
     for x, y in cluster:
         img[x][y] = 0
 
-    return img, FLAG, num_nodes
+    # 计算中心点
+    center_location = np.mean(cluster, axis=0)
+
+    return img, FLAG, num_nodes, center_location
 
 
 
@@ -71,8 +77,11 @@ def GMMFind(img):
 
 
         # gmm找到族
-        img, FLAG, num_nodes = gmm(img, x, y, FLAG)
-        cluster_indices.append([[x, y], num_nodes])
+        img, FLAG, num_nodes, center_location = gmm(img, x, y, FLAG)
+        if USE_CENTER_AS_LOC:  # 如果使用族群的位置中心作为中心
+            cluster_indices.append([center_location, num_nodes])
+        else:  # 使用族群最亮的点作为中心
+            cluster_indices.append([[x, y], num_nodes])
 
         # io.imshow(img)
         # plt.show()
@@ -85,7 +94,10 @@ def GMMFind(img):
 
     return cluster_indices
 
-
+def _distance(x, y):
+    x = np.array(x)
+    y = np.array(y)
+    return np.linalg.norm(x-y)
 
 """找前后两张图内 节点的对应关系"""
 def compare(cls1, cls2):
@@ -103,12 +115,13 @@ def compare(cls1, cls2):
         for j in range(len(cls2)):
             [x2, y2], num_nodes_2 = cls2[j]
 
-            if np.abs(x1-x2) + np.abs(y1-y2) < min_dis and np.abs(x1-x2) + np.abs(y1-y2) < 20+20:  # 找距离最近的 且 控制范围
+            # 0.5是根据先验知识，即点的移动速度最大为600nm/min
+            if _distance([x1, y1], [x2,y2]) < min_dis and _distance([x1, y1], [x2,y2]) < threshold:  # 找距离最近的 且 控制范围
                 min_dis = np.abs(x1-x2) + np.abs(y1-y2)
                 min_num_nodes = num_nodes_2
                 min_index = j
 
-            elif np.abs(x1-x2) + np.abs(y1-y2) == min_dis: # 距离相等比较族大小
+            elif _distance([x1, y1], [x2,y2]) == min_dis: # 距离相等比较族大小
                 if np.abs(num_nodes_1-num_nodes_2) < np.abs(num_nodes_1-min_num_nodes):
                     min_dis = np.abs(x1 - x2) + np.abs(y1 - y2)
                     min_num_nodes = num_nodes_2
@@ -119,3 +132,32 @@ def compare(cls1, cls2):
 
     # print(correspondings)
     return correspondings
+
+
+
+pixel_size = 0.142  # um
+interval = 5  # s
+def calc_speed(t, Clusters):
+    """
+    :param t: 一条轨迹
+    :return:
+    """
+    # 计算每个点的平均速度
+    pic_list = [img_index for img_index in range(t[0], t[-1] + 1)]  # 这条轨迹所属的图片序列
+    node_list = t[1]  # 对于每张图片来说，该轨迹点对应的index
+    location_list = []
+
+    # 获取该点在每张图片中的位置
+    for i in range(len(pic_list)):
+        location = Clusters[pic_list[i]][node_list[i]][0]
+        location_list.append(location)
+    location_list = np.array(location_list)
+
+    # 前后两张图片计算速度
+    speeds = []
+    for i in range(0, len(location_list) - 1):
+        sp = np.linalg.norm(location_list[i + 1] - location_list[i])
+        sp = sp * pixel_size / interval * 60.
+        speeds.append(sp)
+    node_mean_speeds = np.mean(speeds)
+    return node_mean_speeds
