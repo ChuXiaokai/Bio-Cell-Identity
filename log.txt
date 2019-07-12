@@ -1,6 +1,0 @@
-
-(py3) E:\workspace\Bio-Cell-Identity>echo 'CESA3-white' 
-'CESA3-white'
-
-(py3) E:\workspace\Bio-Cell-Identity>python main.py "CESA3_1/CESA3-GCs-mature/CESA3-9-mature/9-white/" "white-9" 200 png 
-终止批处理操作吗(Y/N)? 终止批处理操作吗(Y/N)? 终止批处理操作吗(Y/N)? 终止批处理操作吗(Y/N)? 终止批处理操作吗(Y/N)? 终止批处理操作吗(Y/N)? 终止批处理操作吗(Y/N)? 终止批处理操作吗(Y/N)? 终止批处理操作吗(Y/N)? 终止批处理操作吗(Y/N)? 

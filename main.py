@@ -7,21 +7,26 @@ import os
 import sys
 from Trans import load
 from FindDot import GMMFind, compare, calc_speed
+import input
 
 """
 定义参数
 """
-dir = sys.argv[1]
-prefix = sys.argv[2]
+
+
+dir = input.directory
+prefix = input.prefix
 num_imgs = len(os.listdir(dir))
-threshold = float(sys.argv[3])
-pic_format = sys.argv[4]
+threshold = float(input.thedshold)
+pic_format = input.pic_type
 
 
 # 读取所有的图片
 Clusters = []
 center = []
 for i in range(num_imgs):
+
+
     if i < 10:
         i = '000'+str(i)
     elif 10<= i < 100:
@@ -30,7 +35,7 @@ for i in range(num_imgs):
         i = '0'+str(i)
 
     img = load(dir+prefix + str(i) + '.'+pic_format, threshold=threshold, pic_format=pic_format)
-    
+
     center = [img.shape[0]/2, img.shape[1]/2]
     # img = load('imgs/1-white/visg-eb1b00'+str(i)+'.png', threshold=threshold)
     cls = GMMFind(img)
@@ -103,12 +108,12 @@ for t in trajectories:
             outwards += 1
             outwards_speeds.append(sp)
 print('{2}:  inwards:{0}; outwards:{1}'.format(inwards, outwards, dir))
-inwards_speeds = pd.Series(inwards_speeds)
-outwards_speeds = pd.Series(outwards_speeds)
-print('inwards')
-print(inwards_speeds.describe())
-print('outwards')
-print(outwards_speeds.describe())
+# inwards_speeds = pd.Series(inwards_speeds)
+# outwards_speeds = pd.Series(outwards_speeds)
+# print('inwards')
+# print(inwards_speeds.describe())
+# print('outwards')
+# print(outwards_speeds.describe())
 
 
 
